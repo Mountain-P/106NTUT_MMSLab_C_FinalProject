@@ -7,8 +7,8 @@ void main()
 	FILE *user;
 	char b;
 	int choice, count = 0;
-	char correct[] = "0913";
-	char password[5];
+	char correct[20] = "0913";
+	char inputpassword[20];
 	int function;
 	typedef struct _new
 	{
@@ -40,11 +40,13 @@ void main()
 		if (a == 2)
 		{
 			printf("enter your password:");
-			scanf("%s",password);
-			if (password == correct)
+			scanf("%s",inputpassword);
+			//printf("%s", inputpassword);
+			//printf("%s", correct);
+			if (!strcmp(inputpassword, correct))
 			{
-				scanf("%")
-				function = getchar();
+				scanf("%d", &function);
+				//function = getchar();
 				switch (function)
 				{
 				case 1:
@@ -58,6 +60,9 @@ void main()
 					break;
 				}
 				
+			}
+			else{
+				printf("passowrd wrong");
 			}
 		}
 		break;
