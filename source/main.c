@@ -1,28 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
+int flag = 0;
+int a;
+char c;
+FILE *user;
+char b;
+int filelinecount = 0;
+int choice, count = 0;
+char correct[20] = "0913";
+char inputpassword[20];
+int function;
+char lf;
+void refreshthefile();
+typedef struct _new
+{
+	int usersn;
+	char username[10];
+	char userpw[10];
+	char doorlockpw[10];
+	char accountrfidnum[10];
+
+}new;
+new one[100];
 void main()
 {
-	int flag = 0;
-	int a;
-	char c;
-	FILE *user;
-	char b;
-	int filelinecount=0;
-	int choice, count = 0;
-	char correct[20] = "0913";
-	char inputpassword[20];
-	int function;
-	char lf;
-	typedef struct _new
-	{
-		int usersn;
-		char username[10];
-		char userpw[10];
-		char doorlockpw[10];
-		char accountrfidnum[10];
-
-	}new;
-	new one[100];
+	
 
 	printf("Reading the account information.\nPlease wait....");
 	user = fopen("C://Users/Andy/Desktop/final project/include/user.txt", "r");
@@ -72,8 +74,8 @@ void main()
 			printf("Enter your DoorLock Password:");
 			scanf("%s", &one[people].doorlockpw);
 			printf("Enter your RFID card Number:");
-			scanf("%s", &one[people].doorlockpw);
-			fprintf(user, "%d\t%s\t%s\t%s\t%s\n", one[people].usersn, one[people].username, one[people].userpw, one[people].doorlockpw, &one[people].doorlockpw);
+			scanf("%s", &one[people].accountrfidnum);
+			fprintf(user, "%d\t%s\t%s\t%s\t%s\n", one[people].usersn, one[people].username, one[people].userpw, one[people].doorlockpw, &one[people].accountrfidnum);
 			fclose(user);
 			people++;
 		}
@@ -81,40 +83,56 @@ void main()
 			printf("===============================\nUser Login\n===============================\nPlease Enter Your UserName:");
 			char tempusername[10];
 			char temppassword[10];
-			scanf("%s", tempusername);
-			char findusername[10];
+			int unstatus=0,pwstatus=0;
 			int f = 0;
-			while (strcmp(tempusername, &one[f].username)){
-				f++;
-				if (f > filelinecount){
-					printf("User Not Found!!");
-					printf("Exiting.....");
-					system("pause");
-					return 0;
-				}
+			while (unstatus){
+				scanf("%s", tempusername);
+				char findusername[10];
 				
+				while (strcmp(tempusername, &one[f].username)){
+					f++;
+					if (f > filelinecount){
+						printf("User Not Found!!");
+						printf("Please try again!\nYour UserName:");
+					}
+
+				}
 			}
+			
 
 			printf("Please Enter Your Password:");\
 			scanf("%s", temppassword);
 			if (!strcmp(temppassword, &one[f].userpw)){
 				printf("===============================\nAccount Infomation\n===============================\n");
-				printf("Account Name:%s\nAccount Password:%s\nAccount Door Lock Passowrd:%s\n", &one[f].username, &one[f].userpw,&one[f].doorlockpw);
+				printf("Account Name:%s\nAccount Password:%s\nAccount Door Lock Passowrd:%s\nAccount RFID Card Number:%s\n", &one[f].username, &one[f].userpw, &one[f].doorlockpw, &one[people].accountrfidnum);
+				printf("===============================\nWhat do you want do,%s?\n", &one[f].username);
+				printf("1.Change Your Account Password\n2.Change your Door Lock Password\n3.Change Your RFID Card Number\n4.Logout\nYour choice:");
+				int choice2;
+				scanf("%d", &choice2);
+				switch (choice2){
+				case 1:
+					printf("Enter the Name that you want to change:");
+					char changename[10];
+					scanf("%s", changename);
+					strcpy(one[f].username, changename);
+					printf("%s",one[f].username);
+					refreshthefile();
+					break;
+				default:
+					break;
+						
+				}
 			}
 			else{
 				printf("Password Incorrect!!!\nExiting....");
 				system("pause");
 				return 0;
 			}
-
-
-
 		}
 		if (a == 3)
 		{
 			printf("===============================\nUse admin account need admin password.\n");
 			printf("Please enter your password:");
-			//scanf("%s",inputpassword);
 			for (int j = 0; j<10; j++)
 			{
 				inputpassword[j] = getch();
@@ -125,7 +143,6 @@ void main()
 				printf("*");
 			}
 			inputpassword[flag] = 0;
-			//printf("\n%s",inputpassword);
 			printf("\n===============================\n");
 			if (!strcmp(inputpassword,correct))
 			{
@@ -160,11 +177,15 @@ void main()
 		break;
 		
 	}
-	/*for (int i = 0; i < people; i++)
-	{
-		printf("%5s %10s %10s", one[i].username, one[i].userpw, one[i].doorlockpw);
-	}*/
-	
 	system("pause");
 	return 0;
+}
+void refreshthefile(){
+	printf("%d", filelinecount);
+	user = fopen("C://Users/Andy/Desktop/final project/include/user.txt", "w+");
+	for (int w = 0; w < filelinecount; w++)
+		fprintf(user, "%d\t%s\t%s\t%s\t%s\n", one[w].usersn, one[w].username, one[w].userpw, one[w].doorlockpw, &one[w].accountrfidnum);
+	fclose(user);
+		
+	
 }

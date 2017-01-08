@@ -1,33 +1,31 @@
-﻿已經開始建置於 2017/1/8 下午 04:49:07。
+﻿已經開始建置於 2017/1/8 下午 09:46:41。
      1>節點 2 (Build 目標) 上的專案 "C:\Users\Andy\Desktop\final project\system control\system control\system control.vcxproj"。
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(356,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(357,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Andy\Desktop\final project\include" /ZI /nologo /W3 /WX- /sdl- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"..\..\temp\\" /Fd"..\..\temp\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\source\main.c
          main.c
-     1>c:\users\andy\desktop\final project\source\main.c(28): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\andy\desktop\final project\source\main.c(30): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 請參閱 'fopen' 的宣告
-     1>c:\users\andy\desktop\final project\source\main.c(38): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\andy\desktop\final project\source\main.c(40): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 請參閱 'fopen' 的宣告
-     1>c:\users\andy\desktop\final project\source\main.c(41): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 請參閱 'fscanf' 的宣告
-     1>c:\users\andy\desktop\final project\source\main.c(42): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 請參閱 'fscanf' 的宣告
      1>c:\users\andy\desktop\final project\source\main.c(43): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 請參閱 'fscanf' 的宣告
      1>c:\users\andy\desktop\final project\source\main.c(44): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 請參閱 'fscanf' 的宣告
      1>c:\users\andy\desktop\final project\source\main.c(45): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 請參閱 'fscanf' 的宣告
-     1>c:\users\andy\desktop\final project\source\main.c(54): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\andy\desktop\final project\source\main.c(46): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 請參閱 'fscanf' 的宣告
+     1>c:\users\andy\desktop\final project\source\main.c(47): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 請參閱 'fscanf' 的宣告
+     1>c:\users\andy\desktop\final project\source\main.c(56): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : 請參閱 'scanf' 的宣告
-     1>c:\users\andy\desktop\final project\source\main.c(61): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\andy\desktop\final project\source\main.c(63): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : 請參閱 'scanf' 的宣告
-     1>c:\users\andy\desktop\final project\source\main.c(64): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\andy\desktop\final project\source\main.c(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 請參閱 'fopen' 的宣告
-     1>c:\users\andy\desktop\final project\source\main.c(66): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : 請參閱 'scanf' 的宣告
-     1>c:\users\andy\desktop\final project\source\main.c(69): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\andy\desktop\final project\source\main.c(68): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : 請參閱 'scanf' 的宣告
      1>c:\users\andy\desktop\final project\source\main.c(71): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : 請參閱 'scanf' 的宣告
@@ -35,21 +33,28 @@
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : 請參閱 'scanf' 的宣告
      1>c:\users\andy\desktop\final project\source\main.c(75): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : 請參閱 'scanf' 的宣告
-     1>c:\users\andy\desktop\final project\source\main.c(84): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\andy\desktop\final project\source\main.c(77): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : 請參閱 'scanf' 的宣告
-     1>c:\users\andy\desktop\final project\source\main.c(87): warning C4013: 'strcmp' 未定義; 假設 extern 傳回整數
-     1>c:\users\andy\desktop\final project\source\main.c(93): warning C4098: 'main' : 'void' 函式正在傳回值
-     1>c:\users\andy\desktop\final project\source\main.c(99): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\andy\desktop\final project\source\main.c(89): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : 請參閱 'scanf' 的宣告
-     1>c:\users\andy\desktop\final project\source\main.c(107): warning C4098: 'main' : 'void' 函式正在傳回值
-     1>c:\users\andy\desktop\final project\source\main.c(120): warning C4013: 'getch' 未定義; 假設 extern 傳回整數
-     1>c:\users\andy\desktop\final project\source\main.c(137): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\andy\desktop\final project\source\main.c(92): warning C4013: 'strcmp' 未定義; 假設 extern 傳回整數
+     1>c:\users\andy\desktop\final project\source\main.c(104): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : 請參閱 'scanf' 的宣告
-     1>c:\users\andy\desktop\final project\source\main.c(145): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\andy\desktop\final project\source\main.c(111): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : 請參閱 'scanf' 的宣告
+     1>c:\users\andy\desktop\final project\source\main.c(116): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : 請參閱 'scanf' 的宣告
+     1>c:\users\andy\desktop\final project\source\main.c(117): warning C4013: 'strcpy' 未定義; 假設 extern 傳回整數
+     1>c:\users\andy\desktop\final project\source\main.c(129): warning C4098: 'main' : 'void' 函式正在傳回值
+     1>c:\users\andy\desktop\final project\source\main.c(138): warning C4013: 'getch' 未定義; 假設 extern 傳回整數
+     1>c:\users\andy\desktop\final project\source\main.c(154): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : 請參閱 'scanf' 的宣告
+     1>c:\users\andy\desktop\final project\source\main.c(162): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 請參閱 'fopen' 的宣告
-     1>c:\users\andy\desktop\final project\source\main.c(169): warning C4098: 'main' : 'void' 函式正在傳回值
-     1>c:\users\andy\desktop\final project\source\main.c(15): warning C4101: 'lf' : 未參考的區域變數
-     1>c:\users\andy\desktop\final project\source\main.c(85): warning C4101: 'findusername' : 未參考的區域變數
+     1>c:\users\andy\desktop\final project\source\main.c(181): warning C4098: 'main' : 'void' 函式正在傳回值
+     1>c:\users\andy\desktop\final project\source\main.c(90): warning C4101: 'findusername' : 未參考的區域變數
+     1>c:\users\andy\desktop\final project\source\main.c(185): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 請參閱 'fopen' 的宣告
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\temp\system control.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\..\temp\system control.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\temp\system control.lib" /MACHINE:X86 ..\..\temp\main.obj
          system control.vcxproj -> C:\Users\Andy\Desktop\final project\system control\system control\..\..\temp\system control.exe
@@ -57,4 +62,4 @@
 
 建置成功。
 
-經過時間 00:00:00.33
+經過時間 00:00:00.34
