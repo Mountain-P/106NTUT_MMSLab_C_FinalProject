@@ -50,19 +50,14 @@ void main()
 	//printf("%d%s%s%s%s\n", one[i].usersn, one[i].username, one[i].userpw, one[i].doorlockpw, one[i].accountrfidnum);
 	fclose(user);
 	int people = filelinecount;
+	while (1){
 	printf("===============================\n");
-	printf("==Press 1 to continue\n");
-	printf("==Your Choice:");
-	scanf("%d", &choice);
-	printf("===============================\n");
-	switch (choice)
-	{
-	case 1:
+	
 		printf("");
 		printf("1.Create New Account\n2.User Login\n3.Use Admin Account\n===============================\nEnter your choice:");
 		scanf("%d", &a);
-		if (a == 1)
-		{
+		switch (a){
+		case 1:
 			user = fopen("C://Users/Andy/Desktop/final project/include/user.txt", "a");
 			one[people].usersn = people+1;
 			fprintf(user, "%d", one[people].usersn);
@@ -76,21 +71,26 @@ void main()
 			scanf("%s", &one[people].accountrfidnum);
 			fprintf(user, "\t%s\t%s\t%s\t%s\n", one[people].username, one[people].userpw, one[people].doorlockpw, &one[people].accountrfidnum);
 			fclose(user);
-		}
-		if (a == 2){
-			printf("===============================\nUser Login\n===============================\nPlease Enter Your UserName:");
+			break;
+		case 2:;
 			char tempusername[10];
-			char temppassword[10];
-			int unstatus=1,pwstatus=0;
-			int f = 0;
-			//while (unstatus){
+			while (strcmp(tempusername, "exit"))
+			{
+				printf("===============================\nUser Login\n===============================\nPlease Enter Your UserName:");
+				//char tempusername[10];
+				char temppassword[10];
+				int unstatus = 1, pwstatus = 0;
+				int f = 0;
+				//while (unstatus){
 				scanf("%s", tempusername);
 				char findusername[10];
-				
+
 				//while (strcmp(tempusername, &one[f].username)){
-				while(strcmp(tempusername, &one[f].username))
+				while (strcmp(tempusername, &one[f].username))
 				{
 					f++;
+					if (!strcmp(tempusername, "exit"))
+						break;
 					if (f > filelinecount){
 						printf("User Not Found!!");
 						printf("Please try again!\nYour UserName:");
@@ -99,46 +99,65 @@ void main()
 						f = 0;
 					}
 				}
-				
+				if (!strcmp(tempusername, "exit"))
+					continue;
 				//}
-			//}
-			
+				//}
 
-			printf("Please Enter Your Password:");
-			scanf("%s", temppassword);
-			while (strcmp(temppassword, &one[f].userpw)){
-				printf("password is wrong\tplease enter again :");
+
+				printf("Please Enter Your Password:");
 				scanf("%s", temppassword);
-			}
-			if (!strcmp(temppassword, &one[f].userpw)){
-				printf("===============================\nAccount Infomation\n===============================\n");
-				printf("Account Name:%s\nAccount Password:%s\nAccount Door Lock Passowrd:%s\nAccount RFID Card Number:%s\n", &one[f].username, &one[f].userpw, &one[f].doorlockpw, &one[people].accountrfidnum);
-				printf("===============================\nWhat do you want do,%s?\n", &one[f].username);
-				printf("1.Change Your Account Password\n2.Change your Door Lock Password\n3.Change Your RFID Card Number\n4.Logout\nYour choice:");
-				int choice2;
-				scanf("%d", &choice2);
-				switch (choice2){
-				case 1:
-					printf("Enter the Name that you want to change:");
-					char changename[10];
-					scanf("%s", changename);
-					strcpy(one[f].username, changename);
-					printf("%s",one[f].username);
-					refreshthefile();
-					break;
-				default:
-					break;
-						
+				while (strcmp(temppassword, &one[f].userpw)){
+					printf("password is wrong\tplease enter again :");
+					scanf("%s", temppassword);
+				}
+				if (!strcmp(temppassword, &one[f].userpw)){
+					printf("===============================\nAccount Infomation\n===============================\n");
+					printf("Account Name:%s\nAccount Password:%s\nAccount Door Lock Passowrd:%s\nAccount RFID Card Number:%s\n", &one[f].username, &one[f].userpw, &one[f].doorlockpw, &one[people].accountrfidnum);
+					printf("===============================\nWhat do you want do,%s?\n", &one[f].username);
+					printf("1.Change Your Name\n2.Change Your Account Password\n3.Change your Door Lock Password\n4.Change Your RFID Card Number\n5.Logout\nYour choice:");
+					int choice2;
+					scanf("%d", &choice2);
+					switch (choice2){
+					case 1:
+						printf("Enter the Name that you want to change:");
+						char changename[10];
+						scanf("%s", changename);
+						strcpy(one[f].username, changename);
+						printf("%s", one[f].username);
+						refreshthefile();
+						break;
+					case 2:
+						printf("Enter the Account Password that you want to change:");
+						char changepw[10];
+						scanf("%s", changepw);
+						strcpy(one[f].userpw, changepw);
+						printf("%s", one[f].userpw);
+						refreshthefile();
+						break;
+					case 3:
+						printf("Enter the Door Lock Password that you want to change:");
+						char changedoorlockpw[10];
+						scanf("%s", changedoorlockpw);
+						strcpy(one[f].doorlockpw, changedoorlockpw);
+						printf("%s", one[f].doorlockpw);
+						refreshthefile();
+						break;
+					case 4:
+						printf("Enter the RFID Card Number that you want to change:");
+						char changeaccountrfidnum[10];
+						scanf("%s", changeaccountrfidnum);
+						strcpy(one[f].accountrfidnum, changeaccountrfidnum);
+						printf("%s", one[f].accountrfidnum);
+						refreshthefile();
+						break;
+					case 5:
+						break;
+					}
 				}
 			}
-			else{
-				printf("Password Incorrect!!!\nExiting....");
-				system("pause");
-				return 0;
-			}
-		}
-		if (a == 3)
-		{
+			break;
+		case 3:
 			printf("===============================\nUse admin account need admin password.\n");
 			printf("Please enter your password:");
 			for (int j = 0; j<10; j++)
@@ -193,12 +212,8 @@ void main()
 					break;
 				}
 			}
-			else
-			{
-				printf("passowrd wrong");
-			}
+			break;
 		}
-		break;
 		
 	}
 	system("pause");
