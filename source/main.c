@@ -49,7 +49,7 @@ void main()
 	//int i = 1;
 	//printf("%d%s%s%s%s\n", one[i].usersn, one[i].username, one[i].userpw, one[i].doorlockpw, one[i].accountrfidnum);
 	fclose(user);
-	int people=2;
+	int people = filelinecount;
 	printf("===============================\n");
 	printf("==Press 1 to continue\n");
 	printf("==Your Choice:");
@@ -64,9 +64,8 @@ void main()
 		if (a == 1)
 		{
 			user = fopen("C://Users/Andy/Desktop/final project/include/user.txt", "a");
-			printf("Enter Your UserSN:");
-			scanf("%d", &people);
-			one[people].usersn = people;
+			one[people].usersn = people+1;
+			fprintf(user, "%d", one[people].usersn);
 			printf("Enter Your UserName:");
 			scanf("%s", &one[people].username);
 			printf("Enter Your Password:");
@@ -75,33 +74,42 @@ void main()
 			scanf("%s", &one[people].doorlockpw);
 			printf("Enter your RFID card Number:");
 			scanf("%s", &one[people].accountrfidnum);
-			fprintf(user, "%d\t%s\t%s\t%s\t%s\n", one[people].usersn, one[people].username, one[people].userpw, one[people].doorlockpw, &one[people].accountrfidnum);
+			fprintf(user, "\t%s\t%s\t%s\t%s\n", one[people].username, one[people].userpw, one[people].doorlockpw, &one[people].accountrfidnum);
 			fclose(user);
-			people++;
 		}
 		if (a == 2){
 			printf("===============================\nUser Login\n===============================\nPlease Enter Your UserName:");
 			char tempusername[10];
 			char temppassword[10];
-			int unstatus=0,pwstatus=0;
+			int unstatus=1,pwstatus=0;
 			int f = 0;
-			while (unstatus){
+			//while (unstatus){
 				scanf("%s", tempusername);
 				char findusername[10];
 				
-				while (strcmp(tempusername, &one[f].username)){
+				//while (strcmp(tempusername, &one[f].username)){
+				while(strcmp(tempusername, &one[f].username))
+				{
 					f++;
 					if (f > filelinecount){
 						printf("User Not Found!!");
 						printf("Please try again!\nYour UserName:");
+						//tempusername[10] = '\0';
+						scanf("%s", tempusername);
+						f = 0;
 					}
-
 				}
-			}
+				
+				//}
+			//}
 			
 
-			printf("Please Enter Your Password:");\
+			printf("Please Enter Your Password:");
 			scanf("%s", temppassword);
+			while (strcmp(temppassword, &one[f].userpw)){
+				printf("password is wrong\tplease enter again :");
+				scanf("%s", temppassword);
+			}
 			if (!strcmp(temppassword, &one[f].userpw)){
 				printf("===============================\nAccount Infomation\n===============================\n");
 				printf("Account Name:%s\nAccount Password:%s\nAccount Door Lock Passowrd:%s\nAccount RFID Card Number:%s\n", &one[f].username, &one[f].userpw, &one[f].doorlockpw, &one[people].accountrfidnum);
@@ -143,6 +151,22 @@ void main()
 				printf("*");
 			}
 			inputpassword[flag] = 0;
+			while (strcmp(inputpassword, correct)){
+				printf("\a\npassword is wrong\tplease enter again:");
+				inputpassword[20]= '/0';
+				flag = 0;
+				for (int j = 0; j<10; j++)
+				{
+					inputpassword[j] = getch();
+					if (inputpassword[j] != 13)      //在知識+查到在getch裡按enter會回傳一個13 
+						flag++;
+					else
+						break;
+					printf("*");
+				}
+			inputpassword[flag] = 0;
+			}
+			
 			printf("\n===============================\n");
 			if (!strcmp(inputpassword,correct))
 			{
