@@ -7,10 +7,9 @@ char c;
 FILE *user;
 char b;
 int filelinecount = 0;
-int choice, count = 0;
+int adminfunction,mainmenuchoice, accountmanagerfunction ,count = 0;
 char changeadminpw[20];
 char inputpassword[20];
-int function;
 char lf;
 //==================================
 void refreshthefile();
@@ -161,9 +160,9 @@ int userloggin(){
 			printf("Account Name:%s\nAccount Password:%s\nAccount Door Lock Passowrd:%s\nAccount RFID Card Number:%s\n", &one[f].username, &one[f].userpw, &one[f].doorlockpw, &one[people].accountrfidnum);
 			printf("===============================\nWhat do you want do,%s?\n", &one[f].username);
 			printf("1.Change Your Name\n2.Change Your Account Password\n3.Change your Door Lock Password\n4.Change Your RFID Card Number\n5.Logout\nYour choice:");
-			int choice2;
-			scanf("%d", &choice2);
-			switch (choice2){
+			int userfunction;
+			scanf("%d", &userfunction);
+			switch (userfunction){
 			case 1:
 				printf("Enter the Name that you want to change:");
 				char changename[10];
@@ -203,15 +202,17 @@ int userloggin(){
 	}
 }
 int adminuserfunction(){
+	adminfunction = 0;
 	user = fopen("C://Users/Andy/Desktop/final project/include/admin.txt", "r");
 	char correct[20];
 	fscanf(user, "%s", correct);
 	fclose(user);
-	printf("===============================\nUse admin account need admin password.\n");
+	printtheline("Adminstrator Login");
+	printf("Use Admin Account Need Admin Password.\n");
 	printf("Please enter your password:");
 	inputpassword[20] = '/0';
 	flag = 0;
-	for (int j = 0; j<10; j++)
+	for (int j = 0; j < 10; j++)
 	{
 		inputpassword[j] = getch();
 		if (inputpassword[j] != 13)      //在知識+查到在getch裡按enter會回傳一個13 
@@ -229,7 +230,7 @@ int adminuserfunction(){
 		}
 		else
 		{
-		printf("*");
+			printf("*");
 		}
 	}
 	inputpassword[flag] = 0;
@@ -237,10 +238,10 @@ int adminuserfunction(){
 		printf("\a\npassword is wrong\tplease enter again:");
 		inputpassword[20] = '/0';
 		flag = 0;
-		for (int j = 0; j<10; j++)
+		for (int j = 0; j < 10; j++)
 		{
 			inputpassword[j] = getch();
-			if (inputpassword[j] != 13)  
+			if (inputpassword[j] != 13)
 				flag++;
 			else
 				break;
@@ -265,34 +266,58 @@ int adminuserfunction(){
 	if (!strcmp(inputpassword, correct))
 	{
 		system("CLS");
-		printf("Administrator Function\n");
-		printf("===============================\n");
-		printf("1.print all ID information\n2.Change admin Password\n");
-		printf("===============================\n");
+		while(1){
+		printtheline("Adminstrator Function");
+		printtheline("1.print all ID information\n2.Change admin Password\n3.Logout");
 		printf("Your Choice:");
-		scanf("%d", &function);
-
-		switch (function)
-		{
-		case 1:
-			printf("===================================================\n");
-			printf("     Name       Password        RFID Number\n");
-			printf("===================================================\n");
-			user = fopen("C://Users/Andy/Desktop/final project/include/user.txt", "r");
-			while ((b = getc(user)) != EOF)
+		scanf("%d", &adminfunction);
+		
+			switch (adminfunction)
 			{
-				printf("%c", b);
-				count++;
+			case 1:
+				system("CLS");
+				printf("===================================================\n");
+				printf("     Name       Password        RFID Number\n");
+				printf("===================================================\n");
+				user = fopen("C://Users/Andy/Desktop/final project/include/user.txt", "r");
+				while ((b = getc(user)) != EOF)
+				{
+					printf("%c", b);
+					count++;
+				}
+				fclose(user);
+				printtheline("Account Manager");
+				printtheline("1.Delete A User.2.Exit");
+				printf("Your Choice:");
+				scanf("%d", &accountmanagerfunction);
+				switch (accountmanagerfunction)
+				{
+				case 1:
+					break;
+				case 2:
+					system("CLS");
+					break;
+				default:
+					break;
+				}
+
+				break;
+			case 2:
+				system("CLS");
+				user = fopen("C://Users/Andy/Desktop/final project/include/admin.txt", "w");
+				printtheline("Enter Admin Password that you want to change:");
+				scanf("%s", &changeadminpw);
+				fprintf(user, "%s", changeadminpw);
+				fclose(user);
+				printtheline("Password Change Succeed!");
+				system("pause");
+				system("CLS");
+				break;
+			case 3:
+				system("CLS");
+				return 0;
+				break;
 			}
-			fclose(user);
-			break;
-		case 2:
-			user = fopen("C://Users/Andy/Desktop/final project/include/admin.txt", "w");
-			printf("===================================================\n");
-			printf("Enter Admin Password that you want to change:");
-			scanf("%s", &changeadminpw);
-			fprintf(user, "%s", changeadminpw);
-			fclose(user);
 		}
 	}
 }
