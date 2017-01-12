@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+//===========變數定義===============
 int flag = 0;
 int a;
 char c;
@@ -114,41 +115,40 @@ int usercreate(){
 	scanf("%s", &one[people].accountrfidnum);
 	fprintf(user, "\t%s\t%s\t%s\t%s\n", one[people].username, one[people].userpw, one[people].doorlockpw, &one[people].accountrfidnum);
 	fclose(user);
+	system("CLS");
+	printtheline("Add Succeed!");
+	system("pause");
+	system("CLS");
 }
 int userloggin(){
-	printtheline("User Login");
+	
 	char tempusername[10];
 	while (strcmp(tempusername, "exit"))
 	{
+		system("CLS");
+		printtheline("User Login(Enter \"exit\" to back main menu)");
 		printf("Please Enter Your UserName:");
-		//char tempusername[10];
 		char temppassword[10];
 		int unstatus = 1, pwstatus = 0;
 		int f = 0;
-		//while (unstatus){
 		scanf("%s", tempusername);
 		char findusername[10];
-
-		//while (strcmp(tempusername, &one[f].username)){
 		while (strcmp(tempusername, &one[f].username))
 		{
 			f++;
-			if (!strcmp(tempusername, "exit"))
+			if (!strcmp(tempusername, "exit")){
+				system("CLS");
 				return 0;
+			}
 			if (f > filelinecount){
 				printf("User Not Found!!");
 				printf("Please try again!\nYour UserName:");
-				//tempusername[10] = '\0';
 				scanf("%s", tempusername);
 				f = 0;
 			}
 		}
 		if (!strcmp(tempusername, "exit"))
 			continue;
-		//}
-		//}
-
-
 		printf("Please Enter Your Password:");
 		scanf("%s", temppassword);
 		while (strcmp(temppassword, &one[f].userpw)){
@@ -156,6 +156,7 @@ int userloggin(){
 			scanf("%s", temppassword);
 		}
 		if (!strcmp(temppassword, &one[f].userpw)){
+			system("CLS");
 			printf("===============================\nAccount Infomation\n===============================\n");
 			printf("Account Name:%s\nAccount Password:%s\nAccount Door Lock Passowrd:%s\nAccount RFID Card Number:%s\n", &one[f].username, &one[f].userpw, &one[f].doorlockpw, &one[people].accountrfidnum);
 			printf("===============================\nWhat do you want do,%s?\n", &one[f].username);
@@ -239,7 +240,7 @@ int adminuserfunction(){
 		for (int j = 0; j<10; j++)
 		{
 			inputpassword[j] = getch();
-			if (inputpassword[j] != 13)      //在知識+查到在getch裡按enter會回傳一個13 
+			if (inputpassword[j] != 13)  
 				flag++;
 			else
 				break;
@@ -292,12 +293,6 @@ int adminuserfunction(){
 			scanf("%s", &changeadminpw);
 			fprintf(user, "%s", changeadminpw);
 			fclose(user);
-			//if (strcmp(changeadminpw, correct))
-				//break;
 		}
-		//if (strcmp(changeadminpw, correct))
-			//break;
 	}
-	//if (strcmp(changeadminpw, correct))
-		//continue;
 }
