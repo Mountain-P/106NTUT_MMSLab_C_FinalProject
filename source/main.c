@@ -297,6 +297,7 @@ int adminuserfunction(){
 				switch (accountmanagerfunction)
 				{
 				case 1:
+					printtheline("Which User Do You Want to Delete?Enter the SN:");
 					scanf("%d", &whodelete);
 					int t;
 					for (t = whodelete - 1; t < filelinecount; t++)
