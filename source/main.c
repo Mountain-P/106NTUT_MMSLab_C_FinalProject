@@ -37,7 +37,7 @@ void main()
 	while (1){
 		printtheline("Door Lock Control System");
 		printtheline("Function Select");
-		printtheline("1.Create New Account\n2.User Login\n3.Use Admin Account");		
+		printtheline("1.Create New Account\n2.User Login\n3.Use Admin Account\n4.Exit");		
 		printf("Your Choice:");
 		scanf("%d", &a);
 		switch (a){
@@ -52,6 +52,9 @@ void main()
 		case 3:
 			system("CLS");
 			adminuserfunction();
+			break;
+		case 4:
+			return 0;
 			break;
 		}
 		
