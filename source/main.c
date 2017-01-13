@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 //===========變數定義===============
+int whodelete;
 int flag = 0;
 int a;
 char c;
@@ -63,7 +64,7 @@ void main()
 void initprogram(){
 	//讀取使用者記錄檔市否存在
 	printf("Reading the account information.\nPlease wait....");
-	user = fopen("C://Users/Andy/Desktop/final project/include/user.txt", "r");
+	user = fopen("user.txt", "r");
 	if (user == NULL)
 		printf("\nAccount File not Found!!\n");
 	else
@@ -74,7 +75,7 @@ void initprogram(){
 	}
 	fclose(user);
 	//將檔案中的使用者紀錄放入資料結構之中
-	user = fopen("C://Users/Andy/Desktop/final project/include/user.txt", "r");
+	user = fopen("user.txt", "r");
 	printf("Account Amount:%d\n", filelinecount);
 	people = filelinecount;
 	for (int i = 0; i < 100; i++){
@@ -93,7 +94,7 @@ int printtheline(char content[200]){
 
 void refreshthefile(){
 	printf("%d", filelinecount);
-	user = fopen("C://Users/Andy/Desktop/final project/include/user.txt", "w+");
+	user = fopen("user.txt", "w+");
 	for (int w = 0; w < filelinecount; w++)
 		fprintf(user, "%d\t%s\t%s\t%s\t%s\n", one[w].usersn, one[w].username, one[w].userpw, one[w].doorlockpw, &one[w].accountrfidnum);
 	fclose(user);	
@@ -101,7 +102,7 @@ void refreshthefile(){
 
 int usercreate(){
 	printtheline("User Creating");
-	user = fopen("C://Users/Andy/Desktop/final project/include/user.txt", "a");
+	user = fopen("user.txt", "a");
 	one[people].usersn = people + 1;
 	fprintf(user, "%d", one[people].usersn);
 	printf("Enter Your UserName:");
@@ -203,7 +204,7 @@ int userloggin(){
 }
 int adminuserfunction(){
 	adminfunction = 0;
-	user = fopen("C://Users/Andy/Desktop/final project/include/admin.txt", "r");
+	user = fopen("admin.txt", "r");
 	char correct[20];
 	fscanf(user, "%s", correct);
 	fclose(user);
@@ -279,7 +280,7 @@ int adminuserfunction(){
 				printf("===================================================\n");
 				printf("     Name       Password        RFID Number\n");
 				printf("===================================================\n");
-				user = fopen("C://Users/Andy/Desktop/final project/include/user.txt", "r");
+				user = fopen("user.txt", "r");
 				while ((b = getc(user)) != EOF)
 				{
 					printf("%c", b);
@@ -293,6 +294,25 @@ int adminuserfunction(){
 				switch (accountmanagerfunction)
 				{
 				case 1:
+					scanf("%d", &whodelete);
+					int t;
+					for (t = whodelete - 1; t < filelinecount; t++)
+					{
+						*one[t].username = '\0';
+						*one[t].userpw = '\0';
+						*one[t].doorlockpw = '\0';
+						*one[t].accountrfidnum = '\0';
+						for (int r = 0; r < 10; r++)
+						{
+							one[t].username[r] = one[t + 1].username[r];
+							one[t].userpw [r]= one[t + 1].userpw[r];
+							one[t].doorlockpw[r] = one[t + 1].doorlockpw[r];
+							one[t].accountrfidnum[r] = one[t + 1].accountrfidnum[r];
+						}
+						
+					}
+					filelinecount--;
+					refreshthefile();
 					break;
 				case 2:
 					system("CLS");
@@ -304,7 +324,7 @@ int adminuserfunction(){
 				break;
 			case 2:
 				system("CLS");
-				user = fopen("C://Users/Andy/Desktop/final project/include/admin.txt", "w");
+				user = fopen("admin.txt", "w");
 				printtheline("Enter Admin Password that you want to change:");
 				scanf("%s", &changeadminpw);
 				fprintf(user, "%s", changeadminpw);
